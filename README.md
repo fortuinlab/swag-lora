@@ -39,16 +39,16 @@ experiment.model_path=/path/to/your/models/folder \
 #### Running training via job script 
 After setting up the training job information and hyperparameters in train:
 ```
-sbatch train.bash # slurm
-bash train.bash # local execution
+sbatch scripts/train.bash # slurm
+bash scripts/train.bash # local execution
 ```
  ### Running evaluation scripts
 We have created scripts for evaluating base / MAP ([evaluate_base.bash](./evaluate_base.bash)), MC dropout ([evaluate_dropout.bash](./evaluate_dropout.bash)), Ensemble ([evaluate_ensemble.bash](./evaluate_ensemble.bash)), SWAG ([evaluate_swag.bash](./evaluate_swag.bash)), MultiSWAG ([evaluate_multiswag.bash](./evaluate_multiswag.bash)).
 
 ```
 # e.g.
-sbatch evaluate_swag.bash # slurm
-bash evaluate_swag.bash # local execution
+sbatch scripts/evaluate_swag.bash # slurm
+bash scripts/evaluate_swag.bash # local execution
 ```
 
 The scripts are set up to evaluate both ID and OOD performance, which are set using the task, subtask, ood_task and ood_subtask variables in the evaluation scripts.
