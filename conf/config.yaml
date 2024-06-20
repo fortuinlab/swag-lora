@@ -1,0 +1,51 @@
+defaults:
+  - _self_
+  - model: roberta-base
+  - method: swag
+
+experiment:
+  seed: 10
+
+  val_split_size: 0.2
+  gradient_accumulation_steps: 1
+
+  task: "mrpc"
+  subtask: ''
+  ood_task: "" # leave empty for no OOD evaluation
+  ood_subtask: ""
+  ood_batch_size: 16
+  learning_rate: 1e-4
+  batch_size: 32
+  num_epochs: 15
+
+  wandb_group: "default"
+
+  weight_decay: 0
+  scheduler: 'linear'
+  warmup_length: 0.06
+  num_lr_cycles: 0.5
+  eval_upon_save: True
+
+  # lora hyperparams
+  lora_r: 8
+  lora_alpha: 16
+  lora_dropout: 0.1
+  train_biases: 'none'
+
+  save_folder: './results' # default save location
+  save_path: './should_not_be_saving_here' # will get replaced
+  exp_name: '' # will get replaced unless it is set by the user
+
+  overwrite: False
+  data_path: '/p/scratch/hai_baylora/need_specify_folder'      # /path/to/your/data 
+  model_path: '/p/scratch/hai_baylora/need_specify_folder'     # /path/to/your/models (for offline loading)
+  wandb_path: '/p/scratch/hai_baylora/no_wandb' #/path/to/wandb
+  offline: True
+
+evaluation:
+  seed: 10
+  eval_method: 'swag' # 'swag' | 'dropout' | 
+  eval_model_path: 'NONE' # set to the model path to use in evaluation
+  num_samples: 1 # number of samples (e.g. for dropout/SWAG)
+  swag_sample_scale: 1.0 # covariance scaling parameter for SWAG (https://github.com/wjmaddox/swa_gaussian)
+  only_ood: False # only run OOD eval (skip ID eval)
