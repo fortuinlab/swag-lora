@@ -1,0 +1,3 @@
+model_name: "roberta-large"
+target_modules: ["query", "value"]
+modules_to_save: ['classifier']

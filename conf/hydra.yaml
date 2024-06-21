@@ -1,0 +1,5 @@
+
+
+
+hydra:
+  version_base: '1.3.2'  # Use the version compatible with your Hydra installation

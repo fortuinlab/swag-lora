@@ -1,0 +1,18 @@
+# SWAG specific settings
+method_name: "swag"
+swag_start: 8 # epoch to start SWAG collection
+force_save: 5 # force saving SWAG (early stopping in order to limit overfitting)
+
+modules_to_swag: "grad_only" # which modules to apply SWAG to (lora_only / grad_only / all)
+swag_scheduler: "linear" # SWAG learning rate scheduler
+swag_learning_rate: 1e-5 # SWAG learning rate
+swag_anneal_epochs: 5 # annealing epochs for SWAG learning rate
+
+swag_max_num_models: 5 # max number of SWAG models
+swag_cov_mat:  True # whether to use covariance of weights when sampling SWAG
+swag_c_epochs: 1 # frequency of SWAG collection
+swag_sample_scale:  1.0 # (cov_mat=False -> use 1.0, True -> use 0.5 according to swa_gaussian)
+swag_anneal_strategy: 'linear'
+
+swag_start_with_lowest_loss: True # whether to load lowest validation loss model from training before starting SWAG
+swag_save_base_model:  True # whether to save base LoRA model

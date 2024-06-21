@@ -1,0 +1,3 @@
+model_name: 32bit/meta-llama/Llama-2-7b-hf
+target_modules: ["v_proj" , "q_proj"]
+modules_to_save: ["classifier"]
